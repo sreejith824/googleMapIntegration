@@ -2,10 +2,10 @@
 <div style="text-align:center">
   <h1>{{ title }}</h1>
   <input ngx-google-places-autocomplete  #placesRef="ngx-places" (onAddressChange)="handleFromAddressChange($event)" 
-  placeholder="From Address"/>
+  placeholder="Source"/>
          
   <input ngx-google-places-autocomplete  #placesRef="ngx-places" (onAddressChange)="handleToAddressChange($event)" 
-  placeholder="To Address"/>
+  placeholder="Destination"/>
 
   <p>
 		<button (click)="calculateDistace()">Get Distance</button> {{distance}} KMs
