@@ -36,16 +36,14 @@ export class AppComponent {
 
   public handleFromAddressChange(fromAddress: Address) {
     this.fromAddress = fromAddress;
-    this.lng = fromAddress.geometry.location.lng();
-    this.lat = fromAddress.geometry.location.lat();
+    
     console.log(JSON.stringify(this.fromAddress));
   }
 
   public handleToAddressChange(toAddress: Address) {
     this.toAddress = toAddress;
     console.log(JSON.stringify(this.toAddress));
-    this.lng = toAddress.geometry.location.lng();
-    this.lat = toAddress.geometry.location.lat();
+   
   }
   public calculateDistace() {
     if (this.fromAddress && this.toAddress) {
