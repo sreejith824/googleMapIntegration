@@ -1,8 +1,15 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>{{ title }}</h1>
-  <input ngx-google-places-autocomplete  #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/>
+  <input ngx-google-places-autocomplete  #placesRef="ngx-places" (onAddressChange)="handleFromAddressChange($event)" 
+  placeholder="From Address"/>
          
+  <input ngx-google-places-autocomplete  #placesRef="ngx-places" (onAddressChange)="handleToAddressChange($event)" 
+  placeholder="To Address"/>
+
+  <p>
+		<button (click)="calculateDistace()">Get Distance</button> {{distance}} KMs
+	</p>
   
   <!-- this creates a google map on the page with the given lat/lng from -->
   <!-- the component as the initial center of the map: -->

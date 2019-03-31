@@ -14,7 +14,8 @@ import { AgmCoreModule } from '@agm/core';
     FormsModule,
     GooglePlaceModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDay57vZT0FhlIfT82qKsbtQkV9dVMM7kg'
+      apiKey: 'AIzaSyD4W8IyECUUh3MY-FqNuLqqNc6qvaPc8Fo',
+      libraries: ["places"]
     })
   ],
   providers: [],
