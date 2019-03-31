@@ -7,6 +7,8 @@ import { FormControl } from "@angular/forms";
 import { GooglePlaceDirective } from "ngx-google-places-autocomplete/ngx-google-places-autocomplete.directive";
 import { Address } from "ngx-google-places-autocomplete/objects/address";
 
+import {MapService} from '../app/map.service';
+
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
@@ -21,8 +23,17 @@ export class AppComponent {
   distance: number = 0;
   lat: number;
   lng: number;
+  mapService : MapService;
 
-  constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) { }
+  constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, mapService: MapService) {
+    this.mapService = new MapService();
+   }
+
+  ngOnInit() {
+    this.lat = parseFloat(this.mapService.getCurrentCordinate().currentLattitude);
+    this.lng = parseFloat(this.mapService.getCurrentCordinate().currentLongitude);
+  }
+
   public handleFromAddressChange(fromAddress: Address) {
     this.fromAddress = fromAddress;
     this.lng = fromAddress.geometry.location.lng();
